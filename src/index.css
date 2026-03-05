@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans Trial Median';
+  src: url('/fonts/PolySansTrial-Median.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans Trial Neutral';
+  src: url('/fonts/PolySansTrial-Neutral.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PolySans Trial Neutral Mono';
+  src: url('/fonts/PolySansTrial-NeutralMono.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('/fonts/InterTight-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('/fonts/InterTight-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OffBit Trial Dot Bold';
+  src: url('/fonts/OffBitTrial-DotBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --font-uncut-sans: "Uncut Sans", sans-serif;
+  --font-polysans-median: "PolySans Trial Median", sans-serif;
+  --font-polysans-neutral: "PolySans Trial Neutral", sans-serif;
+  --font-polysans-neutral-mono: "PolySans Trial Neutral Mono", monospace;
+  --font-inter-tight: "Inter Tight", sans-serif;
+  --font-offbit: "OffBit Trial Dot Bold", sans-serif;
+}
