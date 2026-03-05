@@ -103,6 +103,64 @@ function AnimatedNumbers({ targetText, className, dataNodeId }: { targetText: st
   );
 }
 
+function TypewriterText({ text, className, dataNodeId, delay = 0 }: { text: string, className?: string, dataNodeId?: string, delay?: number }) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          setTimeout(() => {
+            setIsTyping(true);
+            const duration = 700; // 0.7s total typing time
+            const timePerChar = duration / text.length;
+            let currentIndex = 0;
+            
+            const typingInterval = setInterval(() => {
+              if (currentIndex < text.length) {
+                setDisplayedText(text.substring(0, currentIndex + 1));
+                currentIndex++;
+              } else {
+                clearInterval(typingInterval);
+                setIsTyping(false);
+              }
+            }, timePerChar);
+            
+            return () => clearInterval(typingInterval);
+          }, delay);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, [text, hasAnimated, delay]);
+
+  return (
+    <div ref={ref} className={className} data-node-id={dataNodeId}>
+      <span>{displayedText}</span>
+      <span 
+        className="inline-block w-[6px] h-[1em] bg-white ml-[4px] align-middle" 
+        style={{ 
+          animation: 'blink 1s step-end infinite',
+          display: hasAnimated && !isTyping ? 'none' : 'inline-block'
+        }} 
+      />
+    </div>
+  );
+}
+
 export default function App() {
   const [boxPos, setBoxPos] = useState({ x: 893, y: 4136 });
 
@@ -333,11 +391,24 @@ export default function App() {
       <p className="absolute font-offbit leading-[16px] left-[956px] not-italic text-[27px] text-white top-[1861px] tracking-[0.54px] uppercase whitespace-nowrap" data-node-id="2519:240">
         automata
       </p>
-      <p className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1900px] tracking-[-0.22px] uppercase whitespace-nowrap" data-node-id="2519:241">
-        dedalus workshop originals
-      </p>
-      <p className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1932px] tracking-[-0.22px] uppercase whitespace-nowrap" data-node-id="2519:242">{`latest-merch-collection `}</p>
-      <p className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1962px] tracking-[-0.22px] uppercase whitespace-nowrap" data-node-id="2519:243">{`logistics configured; eta march 15 `}</p>
+      <TypewriterText 
+        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1900px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        dataNodeId="2519:241"
+        text="dedalus workshop originals"
+        delay={0}
+      />
+      <TypewriterText 
+        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1932px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        dataNodeId="2519:242"
+        text="latest-merch-collection"
+        delay={700}
+      />
+      <TypewriterText 
+        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1962px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        dataNodeId="2519:243"
+        text="logistics configured; eta march 15"
+        delay={1400}
+      />
       <p className="absolute font-polysans-neutral-mono leading-[16px] left-[838px] not-italic text-[10px] text-white top-[1899px] tracking-[-0.2px] uppercase whitespace-nowrap" data-node-id="2519:244">
         pull origin
       </p>
