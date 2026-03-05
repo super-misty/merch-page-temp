@@ -259,7 +259,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="absolute h-[146px] left-[818px] top-[1840px] w-[370px]" data-name="Info Container" data-node-id="2519:208">
+      <div className="absolute h-[146px] left-[818px] top-[1840px] w-[350px]" data-name="Info Container" data-node-id="2519:208">
         <img alt="" className="absolute block max-w-none size-full" src={imgInfoContainer} />
         <div className="absolute top-[19px] left-0 w-full flex justify-center items-center gap-[10px]">
           <p className="font-inter-tight font-bold leading-[16px] not-italic text-[25px] text-white tracking-[-0.5px] uppercase m-0">
