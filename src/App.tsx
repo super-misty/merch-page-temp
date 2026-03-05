@@ -117,7 +117,7 @@ function TypewriterText({ text, className, dataNodeId, delay = 0 }: { text: stri
           
           setTimeout(() => {
             setIsTyping(true);
-            const duration = 700; // 0.7s total typing time
+            const duration = 2000; // 2.0s total typing time
             const timePerChar = duration / text.length;
             let currentIndex = 0;
             
@@ -392,22 +392,22 @@ export default function App() {
         automata
       </p>
       <TypewriterText 
-        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1900px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1900px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:241"
         text="dedalus workshop originals"
         delay={0}
       />
       <TypewriterText 
-        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1932px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1932px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:242"
         text="latest-merch-collection"
-        delay={700}
+        delay={2000}
       />
       <TypewriterText 
-        className="-translate-x-full absolute font-inter-tight font-semibold leading-[12px] left-[1084px] not-italic text-[11px] text-right text-white top-[1962px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-end" 
+        className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1962px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:243"
         text="logistics configured; eta march 15"
-        delay={1400}
+        delay={4000}
       />
       <p className="absolute font-polysans-neutral-mono leading-[16px] left-[838px] not-italic text-[10px] text-white top-[1899px] tracking-[-0.2px] uppercase whitespace-nowrap" data-node-id="2519:244">
         pull origin
