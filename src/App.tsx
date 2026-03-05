@@ -44,7 +44,6 @@ const imgDsc039501 = "/ba1f556dc518998524751ef0c56e279aa95614f8.png";
 const imgAngelWingThermal1 = "/2ab74fa083c7775b3863c8f5eaf90fecd4284f43.png";
 const imgDsc036641 = "/35666addb8177121eba2033c256f9293edb169c0.png";
 
-const imgIconContainer = "/fad876a63755c951ec53fdab730459bcd738ac14.svg";
 const imgIconContainer1 = "/0bb01c7151339471d2c5476c1488396eb5f7ce1e.svg";
 const imgInfoContainer = "/b4a0dbd6c98c647883bd0a2bd402f17b080b7891.svg";
 
