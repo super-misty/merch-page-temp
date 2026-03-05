@@ -1,7 +1,6 @@
 import React, { useState, useMemo, Suspense, useEffect, useRef } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Center, Bounds } from "@react-three/drei";
-import { OBJLoader } from 'three-stdlib';
 import * as THREE from 'three';
 
 function WireframeModel() {
@@ -39,10 +38,10 @@ function WireframeModel() {
 }
 
 function WingsModel() {
-  const obj = useLoader(OBJLoader, "/wings.obj");
+  const { scene } = useGLTF("/angel-wings.glb");
   
   useMemo(() => {
-    obj.traverse((child: any) => {
+    scene.traverse((child: any) => {
       if (child.isMesh) {
         child.material = new THREE.MeshBasicMaterial({
           color: 0xffffff,
@@ -52,11 +51,11 @@ function WingsModel() {
         });
       }
     });
-  }, [obj]);
+  }, [scene]);
 
   return (
     <Center>
-      <primitive object={obj} />
+      <primitive object={scene} />
     </Center>
   );
 }
@@ -296,7 +295,7 @@ export default function App() {
         </div>
       </div>
       <div className="absolute border border-solid border-white/50 h-[265px] left-[214px] top-[3983px] w-[301px] flex flex-col p-6" data-name="Left Stats Box">
-        <div className="flex items-center gap-2 mb-[30px]">
+        <div className="flex items-center gap-2 mb-[10px]">
           <div className="size-[6px] rounded-full bg-[#cac9ff]" />
           <p className="font-polysans-neutral text-[#cac9ff] text-[14px] tracking-wide uppercase whitespace-nowrap m-0">
             calculating wings...
@@ -316,7 +315,7 @@ export default function App() {
           </div>
         </div>
 
-        <p className="font-polysans-neutral text-[13px] text-white tracking-wide uppercase whitespace-nowrap m-0 mt-[30px]">
+        <p className="font-polysans-neutral text-[13px] text-white tracking-wide uppercase whitespace-nowrap m-0 mt-[10px]">
           triangulating agent flight path
         </p>
       </div>
