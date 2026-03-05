@@ -2,8 +2,6 @@ import React, { useState, useMemo, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Center } from "@react-three/drei";
 
-import * as THREE from "three";
-
 function WireframeModel() {
   const { scene, materials } = useGLTF("/winged_cherub_throne.glb");
   
