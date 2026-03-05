@@ -259,8 +259,16 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="absolute h-[146px] left-[818px] top-[1840px] w-[284px]" data-name="Info Container" data-node-id="2519:208">
+      <div className="absolute h-[146px] left-[818px] top-[1840px] w-[370px]" data-name="Info Container" data-node-id="2519:208">
         <img alt="" className="absolute block max-w-none size-full" src={imgInfoContainer} />
+        <div className="absolute top-[19px] left-0 w-full flex justify-center items-center gap-[10px]">
+          <p className="font-inter-tight font-bold leading-[16px] not-italic text-[25px] text-white tracking-[-0.5px] uppercase m-0">
+            Dedalus
+          </p>
+          <p className="font-offbit leading-[16px] not-italic text-[27px] text-white tracking-[0.54px] uppercase m-0 translate-y-[1px]">
+            automata
+          </p>
+        </div>
       </div>
       <div className="absolute border border-solid border-white/50 h-[265px] left-[214px] top-[3983px] w-[301px] flex flex-col justify-between p-6" data-name="Left Stats Box">
         <div className="flex items-center gap-2">
@@ -385,12 +393,6 @@ export default function App() {
       <p className="absolute font-polysans-neutral-mono leading-[16px] left-[838px] not-italic text-[10px] text-white top-[1961px] tracking-[-0.2px] uppercase whitespace-nowrap" data-node-id="2519:238">
         status
       </p>
-      <p className="absolute font-inter-tight font-bold leading-[16px] left-[835px] not-italic text-[25px] text-white top-[1859px] tracking-[-0.5px] uppercase whitespace-nowrap" data-node-id="2519:239">
-        Dedalus
-      </p>
-      <p className="absolute font-offbit leading-[16px] left-[956px] not-italic text-[27px] text-white top-[1861px] tracking-[0.54px] uppercase whitespace-nowrap" data-node-id="2519:240">
-        automata
-      </p>
       <TypewriterText 
         className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1900px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:241"
@@ -401,13 +403,13 @@ export default function App() {
         className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1932px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:242"
         text="latest-merch-collection"
-        delay={2000}
+        delay={2100}
       />
       <TypewriterText 
         className="absolute font-inter-tight font-semibold leading-[12px] left-[920px] not-italic text-[11px] text-left text-white top-[1962px] tracking-[-0.22px] uppercase whitespace-nowrap flex items-center justify-start" 
         dataNodeId="2519:243"
         text="logistics configured; eta march 15"
-        delay={4000}
+        delay={4200}
       />
       <p className="absolute font-polysans-neutral-mono leading-[16px] left-[838px] not-italic text-[10px] text-white top-[1899px] tracking-[-0.2px] uppercase whitespace-nowrap" data-node-id="2519:244">
         pull origin
