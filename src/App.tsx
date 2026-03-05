@@ -149,27 +149,22 @@ export default function App() {
           <img alt="" className="absolute h-[167.52%] left-0 max-w-none top-[-33.76%] w-full" src={imgWingExtrudeRemesh31} />
         </div>
       </div>
-      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[1126.5px] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[103px]" data-node-id="2519:182">
+      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[calc(50%-181px)] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[103px]" data-node-id="2519:182">
         Marketplace
       </p>
-      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[1275px] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[66px]" data-node-id="2519:183">
+      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[calc(50%-32.5px)] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[66px]" data-node-id="2519:183">
         Pricing
       </p>
-      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[1396px] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[48px]" data-node-id="2519:184">
+      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+88.5px)] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[48px]" data-node-id="2519:184">
         Blogs
       </p>
-      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[1503px] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[38px]" data-node-id="2519:185">
+      <p className="-translate-x-1/2 absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+195.5px)] text-[16px] text-center text-white top-[63px] tracking-[-0.32px] uppercase w-[38px]" data-node-id="2519:185">
         Docs
       </p>
-      <div className="absolute bg-white h-[45px] left-[1699px] rounded-[50px] top-[48px] w-[142px]" data-name="Dashboard Background" data-node-id="2519:186" />
-      <p className="-translate-x-1/2 absolute font-uncut-sans leading-[28px] left-[1769px] not-italic text-[20px] text-black text-center top-[57px] tracking-[-0.4px] whitespace-nowrap" data-node-id="2519:187">
+      <div className="absolute bg-white h-[45px] left-[calc(100%-250px)] rounded-[50px] top-[48px] w-[142px]" data-name="Dashboard Background" data-node-id="2519:186" />
+      <p className="-translate-x-1/2 absolute font-uncut-sans leading-[28px] left-[calc(100%-179px)] not-italic text-[20px] text-black text-center top-[57px] tracking-[-0.4px] whitespace-nowrap" data-node-id="2519:187">
         Dashboard
       </p>
-      <div className="absolute inset-[0.98%_13.12%_98.67%_85.73%]" data-name="Icon Container" data-node-id="2519:188">
-        <div className="absolute inset-[-4.54%]">
-          <img alt="" className="block max-w-none size-full" src={imgIconContainer} />
-        </div>
-      </div>
       <div className="absolute h-[737px] left-0 right-0 top-[1517px] flex justify-center gap-[190px]">
         <div className="relative h-[737px] w-[636px]" data-name="DSC03613 1" data-node-id="2519:198">
           <div className="absolute inset-0 pointer-events-none">
