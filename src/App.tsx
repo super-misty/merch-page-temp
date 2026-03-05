@@ -1,4 +1,4 @@
-import React, { useState, useMemo, Suspense } from "react";
+import React, { useState, useMemo, Suspense, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Center } from "@react-three/drei";
 
@@ -47,6 +47,62 @@ const imgDsc036641 = "/35666addb8177121eba2033c256f9293edb169c0.png";
 const imgIconContainer = "/fad876a63755c951ec53fdab730459bcd738ac14.svg";
 const imgIconContainer1 = "/0bb01c7151339471d2c5476c1488396eb5f7ce1e.svg";
 const imgInfoContainer = "/b4a0dbd6c98c647883bd0a2bd402f17b080b7891.svg";
+
+function AnimatedNumbers({ targetText, className, dataNodeId }: { targetText: string, className?: string, dataNodeId?: string }) {
+  const [text, setText] = useState(targetText.replace(/\d/g, "0"));
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          const duration = 300; // 0.3s
+          const startTime = performance.now();
+          const parts = targetText.split(' ');
+          
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            if (progress < 1) {
+              const currentParts = parts.map(part => {
+                if (!isNaN(Number(part)) && part.trim() !== '') {
+                  const max = Math.pow(10, part.length) - 1;
+                  return Math.floor(Math.random() * (max + 1)).toString().padStart(part.length, '0');
+                }
+                return part;
+              });
+              setText(currentParts.join(' '));
+              requestAnimationFrame(animate);
+            } else {
+              setText(targetText);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, [targetText, hasAnimated]);
+
+  return (
+    <p ref={ref} className={className} data-node-id={dataNodeId}>
+      {text}
+    </p>
+  );
+}
 
 export default function App() {
   const [boxPos, setBoxPos] = useState({ x: 893, y: 4136 });
@@ -180,18 +236,21 @@ export default function App() {
       <p className="-translate-x-1/2 absolute font-polysans-median h-[98px] leading-[120px] left-[calc(50%-487px)] text-[85px] text-center text-white top-[3452px] tracking-[-1.7px] uppercase w-[26px]" data-node-id="2519:219">
         )
       </p>
-      <p className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+603px)] text-[16px] text-white top-[3474px] tracking-[-0.32px] uppercase whitespace-nowrap" data-node-id="2519:220">
-        238 238 238
-      </p>
-      <p className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+631px)] text-[16px] text-white top-[3500px] tracking-[-0.32px] uppercase whitespace-nowrap" data-node-id="2519:221">
-        31 31 31
-      </p>
-      <p className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+631px)] text-[16px] text-white top-[3500px] tracking-[-0.32px] uppercase whitespace-nowrap" data-node-id="2519:222">
-        31 31 31
-      </p>
-      <p className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+611px)] text-[16px] text-white top-[3526px] tracking-[-0.32px] uppercase whitespace-nowrap" data-node-id="2519:223">
-        85 157 179
-      </p>
+      <AnimatedNumbers 
+        className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+603px)] text-[16px] text-white top-[3474px] tracking-[-0.32px] uppercase whitespace-nowrap" 
+        dataNodeId="2519:220"
+        targetText="238 238 238"
+      />
+      <AnimatedNumbers 
+        className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+631px)] text-[16px] text-white top-[3500px] tracking-[-0.32px] uppercase whitespace-nowrap" 
+        dataNodeId="2519:221"
+        targetText="31 31 31"
+      />
+      <AnimatedNumbers 
+        className="absolute font-geist-mono font-normal leading-[16px] left-[calc(50%+611px)] text-[16px] text-white top-[3526px] tracking-[-0.32px] uppercase whitespace-nowrap" 
+        dataNodeId="2519:223"
+        targetText="85 157 179"
+      />
       <div className="absolute h-[877px] left-[635px] top-[3891px] w-[673px]" data-name="angel wing thermal 1" data-node-id="2519:224">
         <div className="absolute inset-0 pointer-events-none">
           <img alt="" className="absolute inset-0 max-w-none object-cover size-full [mask-image:radial-gradient(50%_50%_at_center,black_60%,transparent_100%)] [-webkit-mask-image:radial-gradient(50%_50%_at_center,black_60%,transparent_100%)]" src={imgAngelWingThermal1} />
