@@ -1,6 +1,8 @@
 import React, { useState, useMemo, Suspense, useEffect, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls, Center } from "@react-three/drei";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { useGLTF, OrbitControls, Center, Bounds } from "@react-three/drei";
+import { OBJLoader } from 'three-stdlib';
+import * as THREE from 'three';
 
 function WireframeModel() {
   const { scene, materials } = useGLTF("/winged_cherub_throne.glb");
@@ -32,6 +34,29 @@ function WireframeModel() {
   return (
     <Center>
       <primitive object={scene} scale={1.5} />
+    </Center>
+  );
+}
+
+function WingsModel() {
+  const obj = useLoader(OBJLoader, "/wings.obj");
+  
+  useMemo(() => {
+    obj.traverse((child: any) => {
+      if (child.isMesh) {
+        child.material = new THREE.MeshBasicMaterial({
+          color: 0xffffff,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.8
+        });
+      }
+    });
+  }, [obj]);
+
+  return (
+    <Center>
+      <primitive object={obj} />
     </Center>
   );
 }
@@ -270,14 +295,28 @@ export default function App() {
           </p>
         </div>
       </div>
-      <div className="absolute border border-solid border-white/50 h-[265px] left-[214px] top-[3983px] w-[301px] flex flex-col justify-between p-6" data-name="Left Stats Box">
-        <div className="flex items-center gap-2">
+      <div className="absolute border border-solid border-white/50 h-[265px] left-[214px] top-[3983px] w-[301px] flex flex-col p-6" data-name="Left Stats Box">
+        <div className="flex items-center gap-2 mb-[30px]">
           <div className="size-[6px] rounded-full bg-[#cac9ff]" />
           <p className="font-polysans-neutral text-[#cac9ff] text-[14px] tracking-wide uppercase whitespace-nowrap m-0">
             calculating wings...
           </p>
         </div>
-        <p className="font-polysans-neutral text-[13px] text-white tracking-wide uppercase whitespace-nowrap m-0">
+        
+        <div className="flex-1 relative min-h-0">
+          <div className="absolute inset-0" style={{ cursor: "grab" }}>
+            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+              <Suspense fallback={null}>
+                <Bounds fit clip observe margin={1.2}>
+                  <WingsModel />
+                </Bounds>
+              </Suspense>
+              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
+            </Canvas>
+          </div>
+        </div>
+
+        <p className="font-polysans-neutral text-[13px] text-white tracking-wide uppercase whitespace-nowrap m-0 mt-[30px]">
           triangulating agent flight path
         </p>
       </div>
